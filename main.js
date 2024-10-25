@@ -12,8 +12,9 @@ scene.background = new THREE.Color( '#87CEEB' );
 
 //Add the camera
 const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-camera.position.z = 10;
-camera.position.y = 10;
+camera.position.z = 15;
+camera.position.y = 15;
+camera.position.x = 15;
 
 //Add lighting
 const light = new THREE.DirectionalLight('#FFFFFF',1);
@@ -30,7 +31,7 @@ document.body.appendChild( renderer.domElement );
 const pmremGenerator = new THREE.PMREMGenerator( renderer );
 scene.environment = pmremGenerator.fromScene( new RoomEnvironment(),0.01).texture;
 
-//Load the other model
+//Load the model
 const loader =  new GLTFLoader().setPath('/')
 loader.load('iceberg.glb',(glb)=>{
   const model = glb.scene;
